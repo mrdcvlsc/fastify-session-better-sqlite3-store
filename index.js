@@ -2,12 +2,12 @@
 
 /**
  * session store for fastify-session using better-sqlite3.
- * @module sqliteStore
+ * @module SqliteStore
  */
 
 const EventEmitter = require('events')
 
-class sqliteStore extends EventEmitter {
+class SqliteStore extends EventEmitter {
   /**
    * @param {Database} sqlite3db database instance of better-sqlite3.
    * @param {string} table table name where session data will be stored, defaults to `session`.
@@ -33,7 +33,7 @@ class sqliteStore extends EventEmitter {
   }
 }
 
-sqliteStore.prototype.set = function set (sessionId, session, callback) {
+SqliteStore.prototype.set = function set (sessionId, session, callback) {
   try {
     this.setSession.run(
       sessionId,
@@ -42,11 +42,15 @@ sqliteStore.prototype.set = function set (sessionId, session, callback) {
     )
     callback(null)
   } catch (err) {
-    callback(err)
+    if (err.code === 'SQLITE_CONSTRAINT_PRIMARYKEY') {
+      callback(null)
+    } else {
+      callback(err)
+    }
   }
 }
 
-sqliteStore.prototype.get = function get (sessionId, callback) {
+SqliteStore.prototype.get = function get (sessionId, callback) {
   try {
     const results = []
     for (const row of this.getSession.iterate(sessionId)) {
@@ -64,7 +68,7 @@ sqliteStore.prototype.get = function get (sessionId, callback) {
   }
 }
 
-sqliteStore.prototype.destroy = function destroy (sessionId, callback) {
+SqliteStore.prototype.destroy = function destroy (sessionId, callback) {
   try {
     this.destroySession.run(sessionId)
     callback(null)
@@ -73,4 +77,4 @@ sqliteStore.prototype.destroy = function destroy (sessionId, callback) {
   }
 }
 
-module.exports = sqliteStore
+module.exports = SqliteStore
