@@ -1,0 +1,23 @@
+name: standard
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  check-code-style-standard:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Install Standard
+      run: npm i -D standard
+
+    - name: Check code style format
+      run: npx standard *.js
