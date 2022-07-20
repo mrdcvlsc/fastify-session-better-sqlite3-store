@@ -4,7 +4,7 @@
 ![standard](https://github.com/mrdcvlsc/fastify-better-sqlite3-session-store/actions/workflows/standard.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-A simple session store for fastify-session using better-sqlite3
+Session store for [@fastify/session](https://github.com/fastify/session) using [better-sqlite3](https://github.com/WiseLibs/better-sqlite3). By default [@fastify/session](https://github.com/fastify/session) stores sessions in-memory. Using this package's class you can store sessions on an **SQLite3** database instead.
 
 ## Installation
 
@@ -14,7 +14,7 @@ npm install fastify-better-sqlite3-session-store
 
 ## Example
 
-Use with **fastify-session**'s `store` property.
+Use with `fastify-session`'s `store` property.
 
 ```js
 const fastify = require('fastify')({logger:true})
@@ -38,7 +38,7 @@ fastify.register(fastifySession,{
 
 ## Package-Status
 
-*premature, there are a lot of rooms from improvement*
+*premature, there are a lot of rooms for improvement*
 
 -----
 
