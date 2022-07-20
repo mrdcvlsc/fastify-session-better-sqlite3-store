@@ -1,7 +1,8 @@
 # fastify-better-sqlite3-session-store
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+![ci](https://github.com/mrdcvlsc/fastify-better-sqlite3-session-store/actions/workflows/ci.yml/badge.svg)
 ![standard](https://github.com/mrdcvlsc/fastify-better-sqlite3-session-store/actions/workflows/standard.yml/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 A simple session store for fastify-session using better-sqlite3
 
