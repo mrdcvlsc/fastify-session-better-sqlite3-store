@@ -1,15 +1,10 @@
 'use strict'
 
-/**
- * session store for fastify-session using better-sqlite3.
- * @module SqliteStore
- */
-
 const EventEmitter = require('events')
 
 class SqliteStore extends EventEmitter {
   /**
-   * @param {Database} sqlite3db database instance of better-sqlite3.
+   * @param {Object} sqlite3db database instance of better-sqlite3.
    * @param {string} table table name where session data will be stored, defaults to `session`.
    */
   constructor (sqlite3db, table = 'session') {
@@ -57,10 +52,16 @@ SqliteStore.prototype.get = function get (sessionId, callback) {
       results.push(row)
     }
 
-    let session
+    let session = null
     if (results.length === 1) {
-      session = results[0].session
-      session = JSON.parse(session)
+      const found = JSON.parse(results[0].session)
+      if (found.expires) {
+        if (new Date() < new Date(found.expires)) {
+          session = found
+        }
+      } else {
+        session = found
+      }
     }
     callback(null, session)
   } catch (err) {
