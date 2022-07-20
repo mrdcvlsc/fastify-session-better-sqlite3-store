@@ -4,7 +4,8 @@
   "description": "A simple session store for fastify-session using better-sqlite3",
   "main": "index.js",
   "scripts": {
-    "lint": "npx standard *.js"
+    "lint": "npx standard *.js",
+    "test": "node test/first.test && node test/second.test"
   },
   "keywords": [
     "session",

@@ -106,3 +106,6 @@ dist
 # add ons
 
 dev.js
+.vscode/
+test/cookie.json
+test/sqlite.db
