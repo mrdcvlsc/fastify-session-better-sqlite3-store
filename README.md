@@ -23,9 +23,9 @@ const fastifySession = require('@fastify/session')
 const db = require('better-sqlite3')(`./sqlite.db`)
 
 // require module
-const SqliteStore = require('fastify-better-sqlite3-session-store');
+const SqliteStore = require('fastify-better-sqlite3-session-store')
 
-fastify.register(fastifyCookie);
+fastify.register(fastifyCookie)
 fastify.register(fastifySession,{
   // ...
   // other session options
@@ -40,7 +40,5 @@ fastify.register(fastifySession,{
 
 
 ## License
-
------
 
 [MIT Licence](./LICENSE)
