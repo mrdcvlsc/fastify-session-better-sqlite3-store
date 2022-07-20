@@ -72,11 +72,11 @@ async function start () {
     }
 
     t.assertEqual('session none', subject1.payload, 'session:no-user')
-    t.assertEqual('session recorded', subject2.payload, 'recorded:subject2')
+    t.assertEqual('session recorded', subject2.payload, 'recorded:subject22')
     t.assertEqual('session existing', subject3.payload, 'session:subject2')
     t.assertEqual('session destroyed', subject4.payload, 'destroyed:subject2')
     t.assertEqual('session no more', subject5.payload, 'session:no-user')
-    t.assertEqual('new session recorded', subject6.payload, 'recorded:subject6')
+    t.assertEqual('new session recorded', subject6.payload, 'recorded:subjectr6')
     t.assertEqual('new session existing', subject7.payload, 'session:subject6')
     t.assertEqual('new session expired', subject8.payload, 'session:no-user')
     t.assertEqual('session saved then server shutsdown', subject9.payload, 'recorded:subject9')
