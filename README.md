@@ -27,3 +27,9 @@ fastify.register(fastifySession,{
   store: new SqliteStore(db)
 })
 ```
+
+## Installation
+
+```
+npm install fastify-better-sqlite3-session-store
+```
