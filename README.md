@@ -6,7 +6,13 @@
 
 A simple session store for fastify-session using better-sqlite3
 
-## Status : [**WIP**]
+## Installation
+
+```
+npm install fastify-better-sqlite3-session-store
+```
+
+## Example
 
 Use with **fastify-session**'s `store` property.
 
@@ -27,3 +33,14 @@ fastify.register(fastifySession,{
   store: new SqliteStore(db)
 })
 ```
+
+-----
+
+**Package-Status : [WIP]**
+
+
+## License
+
+-----
+
+[MIT Licence](./LICENSE)
