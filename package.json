@@ -1,6 +1,6 @@
 {
   "name": "fastify-session-better-sqlite3-store",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A simple session store for fastify-session using better-sqlite3",
   "main": "index.js",
   "scripts": {
