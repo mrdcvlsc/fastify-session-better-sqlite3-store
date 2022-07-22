@@ -1,4 +1,4 @@
-const fastify = require('fastify')({ logger: true })
+const fastify = require('fastify')({ logger: false })
 const fastifyCookie = require('@fastify/cookie')
 const fastifySession = require('@fastify/session')
 const sqlite3db = require('better-sqlite3')('./test/sqlite.db')
@@ -24,7 +24,7 @@ fastify.get('/session', (request, reply) => {
   }
 })
 
-const { SmallTest, httpGetRequest, readJsonFile } = require('./SmallTest')
+const { SmallTest, httpGetRequest, readJsonFile, setTimeoutAsync } = require('./SmallTest')
 
 async function start () {
   const t = new SmallTest('TEST SET CASE 2')
@@ -33,18 +33,24 @@ async function start () {
 
     const cookie = await readJsonFile('test/cookie.json')
     const subject9 = await httpGetRequest(fastify, '/session', cookie)
+
+    await setTimeoutAsync(6000)
+
+    const subject10 = await httpGetRequest(fastify, '/session', cookie)
+
     t.assertEqual('session existing after server restart', subject9.payload, 'session:subject9')
+    t.assertEqual('session expired', subject10.payload, 'session:no-user')
 
     await fastify.close()
 
     if (t.results()) {
-      console.log(t.testName, '=> PASSED ALL TEST\n')
+      console.log('\n', t.testName, '=> PASSED ALL TEST\n')
     } else {
-      console.log(t.testName, '=> FAILED SOME TEST\n')
+      console.log('\n', t.testName, '=> FAILED SOME TEST\n')
       process.exit(1)
     }
   } catch (err) {
-    fastify.log.error(err)
+    console.error(err)
     process.exit(1)
   }
 }
