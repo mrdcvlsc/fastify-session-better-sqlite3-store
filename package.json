@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "npx standard *.js test/*.js",
+    "lint-fix": "npx standard --fix *.js test/*.js",
     "test": "node test/first.test && node test/second.test"
   },
   "repository": {

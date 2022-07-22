@@ -70,7 +70,7 @@ async function start () {
     const subject7 = await httpGetRequest(fastify, '/session', cookie2)
 
     await setTimeoutAsync(6000)
-    
+
     const subject8 = await httpGetRequest(fastify, '/session', cookie2)
     const subject9 = await httpGetRequest(fastify, '/set/subject9')
 
