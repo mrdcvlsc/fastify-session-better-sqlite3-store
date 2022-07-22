@@ -20,4 +20,4 @@ jobs:
       run: npm i -D standard
 
     - name: Check code style format
-      run: npx standard *.js
+      run: npm run lint
