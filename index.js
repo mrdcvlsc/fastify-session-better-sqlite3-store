@@ -1,6 +1,12 @@
 'use strict'
 
 const NODE_VERSION_REQUIREMENT = 14
+
+const nodeVersion = Number(process.version.match(/^v(\d+)/)[1])
+if (nodeVersion < NODE_VERSION_REQUIREMENT) {
+  throw new Error(`node '${process.version}' not supported, needs 'v14.x' or greater`)
+}
+
 const EventEmitter = require('events')
 
 class SqliteStore extends EventEmitter {
@@ -9,11 +15,6 @@ class SqliteStore extends EventEmitter {
    * @param {string} table table name where session data will be stored, defaults to `session`.
    */
   constructor (sqlite3db, table = 'session') {
-    const nodeVersion = Number(process.version.match(/^v(\d+)/)[1])
-    if (nodeVersion < NODE_VERSION_REQUIREMENT) {
-      throw new Error(`node '${process.version}' not supported, needs 'v14.x' or greater`)
-    }
-
     try {
       sqlite3db.exec(`
         create table ${table} (
@@ -27,6 +28,7 @@ class SqliteStore extends EventEmitter {
         throw err
       }
     }
+
     super()
     this.setSession = sqlite3db.prepare(`INSERT INTO ${table} (sid, expires, session) VALUES (?, ?, ?)`)
     this.getSession = sqlite3db.prepare(`SELECT sid, expires, session FROM ${table} WHERE sid = ?`)
