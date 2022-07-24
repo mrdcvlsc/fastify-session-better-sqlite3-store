@@ -1,9 +1,9 @@
 # fastify-session-better-sqlite3-store
 
-![node version](https://img.shields.io/badge/node%20-%3E=%2014.x-brightgreen.svg)
 ![ci](https://github.com/mrdcvlsc/fastify-session-better-sqlite3-store/actions/workflows/ci.yml/badge.svg)
 ![standard](https://github.com/mrdcvlsc/fastify-session-better-sqlite3-store/actions/workflows/standard.yml/badge.svg)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+![node version](https://img.shields.io/badge/node%20-%3E=%2014.x-brightgreen.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 [better-sqlite3](https://github.com/WiseLibs/better-sqlite3) session store for [@fastify/session](https://github.com/fastify/session). By default [@fastify/session](https://github.com/fastify/session) stores sessions in-memory. With this small package you can store sessions on an **SQLite3** database instead.
 
