@@ -2,36 +2,25 @@ name: ci
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
 
-  tests-ubuntu:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOs-latest]
+        node-version: [12.x, 14.x, 16.x, 18.x]
 
-    runs-on: ubuntu-latest
-    
     steps:
-
-    - uses: actions/checkout@v2
-
-    - name: Install Dependencies
-      run: npm install
-
-    - name: run tests
-      run: npm run test
-
-  tests-windows:
-
-    runs-on: windows-latest
-    
-    steps:
-
-    - uses: actions/checkout@v2
-
-    - name: Install Dependencies
-      run: npm install
-
-    - name: run tests
-      run: npm run test
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm test
