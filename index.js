@@ -1,6 +1,6 @@
 'use strict'
 
-const NODE_VERSION_REQUIREMENT = 14
+const NODE_VERSION_REQUIREMENT = 16
 
 const nodeVersion = Number(process.version.match(/^v(\d+)/)[1])
 if (nodeVersion < NODE_VERSION_REQUIREMENT) {
