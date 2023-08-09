@@ -37,12 +37,6 @@ fastify.register(fastifySession, {
 
 -----
 
-## Package-Status
-
-*premature, there are a lot of rooms for improvement*
-
------
-
 ## License
 
 [MIT Licence](https://github.com/mrdcvlsc/fastify-session-better-sqlite3-store/blob/main/LICENSE)

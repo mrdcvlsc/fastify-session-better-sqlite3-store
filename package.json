@@ -1,6 +1,6 @@
 {
   "name": "fastify-session-better-sqlite3-store",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A simple session store for fastify-session using better-sqlite3",
   "main": "index.js",
   "scripts": {
@@ -23,10 +23,10 @@
   "author": "mrdcvlsc",
   "license": "MIT",
   "devDependencies": {
-    "@fastify/cookie": "^7.2.0",
-    "@fastify/session": "^9.0.0",
-    "better-sqlite3": "^7.6.2",
-    "fastify": "^4.2.1",
-    "standard": "^17.0.0"
+    "@fastify/cookie": "^9.0.4",
+    "@fastify/session": "^10.4.0",
+    "better-sqlite3": "^8.5.0",
+    "fastify": "^4.21.0",
+    "standard": "^17.1.0"
   }
 }

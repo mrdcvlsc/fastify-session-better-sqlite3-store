@@ -40,7 +40,7 @@ SqliteStore.prototype.set = function set (sessionId, session, callback) {
   try {
     this.setSession.run(
       sessionId,
-      session.expires.toISOString(),
+      session.cookie._expires.toISOString(),
       JSON.stringify(session)
     )
     callback(null)
@@ -63,8 +63,8 @@ SqliteStore.prototype.get = function get (sessionId, callback) {
     let session = null
     if (results.length === 1) {
       const found = JSON.parse(results[0].session)
-      if (found.expires) {
-        if (new Date() < new Date(found.expires)) {
+      if (found.cookie.expires) {
+        if (new Date() < new Date(found.cookie.expires)) {
           session = found
         }
       } else {
