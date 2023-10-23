@@ -1,5 +1,7 @@
 # fastify-session-better-sqlite3-store
 
+https://www.npmjs.com/package/fastify-session-better-sqlite3-store
+
 ![ci](https://github.com/mrdcvlsc/fastify-session-better-sqlite3-store/actions/workflows/ci.yml/badge.svg)
 ![standard](https://github.com/mrdcvlsc/fastify-session-better-sqlite3-store/actions/workflows/standard.yml/badge.svg)
 ![node version](https://img.shields.io/badge/node%20-%3E=%2014.x-brightgreen.svg)

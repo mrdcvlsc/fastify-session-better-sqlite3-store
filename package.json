@@ -1,6 +1,6 @@
 {
   "name": "fastify-session-better-sqlite3-store",
-  "version": "2.0.0",
+  "version": "2.1.1",
   "description": "A simple session store for fastify-session using better-sqlite3",
   "main": "index.js",
   "scripts": {
@@ -10,23 +10,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mrdcvlsc/fastify-session-better-sqlite3-store.git"
+    "url": "git+https://github.com/mrdcvlsc/fastify-session-better-sqlite3-store.git"
   },
   "keywords": [
-    "session",
+    "fastify-session-better-sqlite3-store",
     "fastify",
+    "session",
+    "better",
+    "sqlite3",
     "store",
-    "better-sqlite3",
     "sqlite",
+    "better-sqlite3",
     "session-store"
   ],
   "author": "mrdcvlsc",
   "license": "MIT",
   "devDependencies": {
-    "@fastify/cookie": "^9.0.4",
-    "@fastify/session": "^10.4.0",
-    "better-sqlite3": "^8.5.0",
-    "fastify": "^4.21.0",
+    "@fastify/cookie": "^9.1.0",
+    "@fastify/session": "^10.5.0",
+    "better-sqlite3": "^9.0.0",
+    "fastify": "^4.24.3",
     "standard": "^17.1.0"
   }
 }
