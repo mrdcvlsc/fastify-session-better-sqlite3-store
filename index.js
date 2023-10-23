@@ -30,7 +30,7 @@ class SqliteStore extends EventEmitter {
     }
 
     super()
-    this.setSession = sqlite3db.prepare(`INSERT OR REPLACE INTO ${table} (sid, expires, session) VALUES (?, ?, ?)`)
+    this.setSession = sqlite3db.prepare(`INSERT INTO ${table} (sid, expires, session) VALUES (?, ?, ?) ON CONFLICT (sid) DO UPDATE SET session = excluded.session`)
     this.getSession = sqlite3db.prepare(`SELECT sid, expires, session FROM ${table} WHERE sid = ?`)
     this.destroySession = sqlite3db.prepare(`DELETE FROM ${table} WHERE sid = ?`)
   }
