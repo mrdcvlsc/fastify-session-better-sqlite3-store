@@ -24,7 +24,7 @@ class SqliteStore extends EventEmitter {
         )`
       )
     } catch (err) {
-      if (err.toString() !== 'SqliteError: table session already exists') {
+      if (err.toString() !== `SqliteError: table ${table} already exists`) {
         throw err
       }
     }
