@@ -27,9 +27,9 @@
   "license": "MIT",
   "devDependencies": {
     "@fastify/cookie": "^11.0.2",
-    "@fastify/session": "^11.1.0",
-    "better-sqlite3": "^12.2.0",
-    "fastify": "^5.4.0",
+    "@fastify/session": "^11.1.1",
+    "better-sqlite3": "^12.6.2",
+    "fastify": "^5.7.2",
     "standard": "^17.1.2"
   }
 }
